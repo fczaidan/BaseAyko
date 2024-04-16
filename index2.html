@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base de Conhecimento</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content" id="loginContent">
+            <h1>Autenticação Requerida</h1>
+            <p>Por favor, faça login para acessar a Base de Conhecimento.</p>
+            <form id="loginForm" onsubmit="authenticateUser(event)">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div class="content" id="mainContent" style="display:none;">
+            <h1>Bem-vindo à Base de Conhecimento</h1>
+            <p>Aqui você encontrará informações úteis sobre sistemas, equipamentos e resolução de problemas.</p>
+            <p>Selecione uma categoria no menu lateral para começar:</p>
+        </div>
+        <div class="sidebar" id="sidebar" style="display:none;">
+            <h3>Categorias</h3>
+            <ul id="categoryList">
+                <li><a href="#" onclick="toggleSubcategories('sistemas')"><b>Sistemas</b></a>
+                    <ul class="subcategories" id="sub-sistemas">
+                        <li><a href="#" onclick="loadPDF('pdfs/windows.pdf')">Windows</a></li>
+                        <li><a href="#" onclick="loadPDF('pdfs/linux.pdf')">Linux</a></li>
+                        <li><a href="#" onclick="loadPDF('pdfs/redes.pdf')">Redes</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" onclick="toggleSubcategories('equipamentos')"><b>Equipamentos</b></a>
+                    <ul class="subcategories" id="sub-equipamentos">
+                        <li><a href="#" onclick="loadPDF('pdfs/computadores.pdf')">Computadores</a></li>
+                        <li><a href="#" onclick="loadPDF('pdfs/impressoras.pdf')">Impressoras</a></li>
+                        <li><a href="#" onclick="loadPDF('pdfs/telefones.pdf')">Telefones</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" onclick="toggleSubcategories('problemas')"><b>Problemas</b></a>
+                    <ul class="subcategories" id="sub-problemas">
+                        <li><a href="#" onclick="loadPDF('pdfs/lentidao.pdf')">Lentidão do sistema</a></li>
+                        <li><a href="#" onclick="loadPDF('pdfs/falha_conexao.pdf')">Falha de conexão</a></li>
+                        <li><a href="#" onclick="loadPDF('pdfs/erro_software.pdf')">Erro de software</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+	<script src="js/main.js"></script>
+</body>
+</html>
